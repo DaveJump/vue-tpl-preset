@@ -1,0 +1,31 @@
+{
+  "name": "vue-mobile-preset",
+  "version": "1.0.0",
+  "description": "A mobile preset base on vue cli 3",
+  "main": "./index.js",
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+    "lint": "eslint",
+    "release": "release-it",
+    "deploy": "sh deploy.sh"
+  },
+  "keywords": [
+    "vue-preset",
+    "vue preset",
+    "project preset"
+  ],
+  "author": "DaveJump",
+  "license": "MIT",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "chalk": "^2.4.1",
+    "fs-extra": "^7.0.1",
+    "globby": "^8.0.1"
+  },
+  "devDependencies": {
+    "conventional-changelog-cli": "^2.0.11",
+    "release-it": "^8.2.0"
+  }
+}

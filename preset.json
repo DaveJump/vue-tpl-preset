@@ -1,0 +1,23 @@
+{
+  "useTaobaoRegistry": false,
+  "git": false,
+  "useConfigFiles": false,
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-eslint": {
+      "config": "standard",
+      "lintOn": ["save", "commit"]
+    },
+    "@vue/eslint-config-standard": {
+      "version": "^4.0.0"
+    },
+    "vue-cli-plugin-style-resources-loader": {}
+  },
+  "configs": {
+    "vue": {
+      "baseUrl": "./",
+      "lintOnSave": true,
+      "productionSourceMap": false
+    }
+  }
+}
