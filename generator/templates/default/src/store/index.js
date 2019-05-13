@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-export default (state, mutations, actions) => {
+const StoreFactory = store => {
   Vue.use(Vuex)
+  
+  const { state, mutations, actions } = store
 
   return new Vuex.Store({
     state,
@@ -10,4 +12,6 @@ export default (state, mutations, actions) => {
     actions
   })
 }
+
+export default StoreFactory
 

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-export default (routes, store) => {
+const RouterFactory = (routes, store) => {
   Vue.use(VueRouter)
   
   const router = new VueRouter({
@@ -12,3 +12,5 @@ export default (routes, store) => {
 
   return router
 }
+
+export default RouterFactory

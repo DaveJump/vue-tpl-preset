@@ -18,7 +18,7 @@ const isProd = process.env.NODE_ENV === 'production'
  */
 function getPagesConfig (entry) {
   let pages = {}
-  // define entry files like: index.html, main.js, App.vue
+  // define entry files like: index.html, main.js, root.vue
   glob.sync(PAGE_PATH + '/*/main.js')
       .forEach(filePath => {
         let pageName = path.basename(path.dirname(filePath))
@@ -117,8 +117,8 @@ module.exports = {
 
   // Server of development
   devServer: {
-    port: process.env.PORT || 5000,
-    proxy: {}
+    port: process.env.PORT || 5000
+    // proxy: {}
   },
 
   // Plugins
