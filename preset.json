@@ -10,8 +10,7 @@
     },
     "@vue/eslint-config-standard": {
       "version": "^4.0.0"
-    },
-    "vue-cli-plugin-style-resources-loader": {}
+    }
   },
   "configs": {
     "vue": {

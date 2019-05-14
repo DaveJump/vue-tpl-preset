@@ -7,6 +7,7 @@ const glob = require('glob')
 const path = require('path')
 const webpack = require('webpack')
 const eslintFriendlyFormatter = require('eslint-friendly-formatter')
+const TerserPlugin = require('terser-webpack-plugin')
 const resolve = dir => path.resolve(__dirname, dir)
 const VUE_APP_ALLOW_ENTRY = process.env.VUE_APP_ALLOW_ENTRY || ''
 const PAGE_PATH = resolve('src/pages')
@@ -76,7 +77,17 @@ module.exports = {
             priority: 10
           }
         }
-      }
+      },
+      minimizer: [
+        // Remove console from build file
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              drop_console: isProd
+            }
+          }
+        })
+      ]
     },
     plugins: [
       new webpack.DefinePlugin({
@@ -96,6 +107,7 @@ module.exports = {
               .set('components', resolve('src/components'))
               .set('lib', resolve('src/lib'))
               .set('api', resolve('src/lib/api'))
+              .set('utils', resolve('src/lib/utils'))
               .set('mixins', resolve('src/mixins'))
 
     // Set alias depend on multi-pages
@@ -121,13 +133,15 @@ module.exports = {
     // proxy: {}
   },
 
-  // Plugins
-  pluginOptions: {
-    'style-resources-loader': {
-      patterns: [
-        resolve(__dirname, 'src/assets/<%= options.cssPreprocessor%>/common.<%= options.cssPreprocessor%>')
-      ],
-      preProcessor: '<%= options.cssPreprocessor %>'
+  // Import var to global
+  css: {
+    loaderOptions: {
+      ['<%= options.cssPreprocessor === "scss" ? "sass" : "less"%>']: {
+        data: `
+          @import "~@/assets/<%= options.cssPreprocessor%>/vars.<%= options.cssPreprocessor%>";
+          @import "~@/assets/<%= options.cssPreprocessor%>/mixins.<%= options.cssPreprocessor%>";
+        `
+      }
     }
   }
 }

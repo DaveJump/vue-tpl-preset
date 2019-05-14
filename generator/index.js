@@ -41,7 +41,8 @@ module.exports = (api, opts, rootOpts) => {
   let devDependencies = {
     "babel-plugin-import": "^1.10.0",
     "vue-template-compiler": "^2.6.10",
-    "eslint-friendly-formatter": "^4.0.1"
+    "eslint-friendly-formatter": "^4.0.1",
+    "terser-webpack-plugin": "^1.2.3"
   }
   // # less
   if (opts['cssPreprocessor'] === 'less') {
@@ -70,8 +71,6 @@ module.exports = (api, opts, rootOpts) => {
         '@vue/standard'
       ],
       "rules": {
-        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         "vue/no-parsing-error": [
           2,
           { "x-invalid-end-tag": false }
@@ -119,7 +118,7 @@ module.exports = (api, opts, rootOpts) => {
    * Rendering files
    */
 
-  // Deleting useless templates
+  // Drop vue-cli preset template
   api.render(files => {
     Object.keys(files)
           .filter(path => path.startsWith('src/') || path.startsWith('public/'))
@@ -127,6 +126,6 @@ module.exports = (api, opts, rootOpts) => {
   })
 
   api.render('./templates/default')
-  if (opts['cssPreprocessor'] === 'less') api.render('./templates/default/css-pre-processors/less')
-  if (opts['cssPreprocessor'] === 'scss') api.render('./templates/default/css-pre-processors/scss')
+  if (opts['cssPreprocessor'] === 'less') api.render('./templates/css-pre-processors/less')
+  if (opts['cssPreprocessor'] === 'scss') api.render('./templates/css-pre-processors/scss')
 }

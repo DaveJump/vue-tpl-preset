@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import RouterFactory from './router'
 import StoreFactory from './store'
+import vant from 'vant'
+import API from 'api'
+
+Vue.use(vant)
+
+import 'assets/<%= options["cssPreprocessor"]%>/common.<%= options["cssPreprocessor"] %>'
+
+Vue.prototype.$API = API
 
 export default class App {
   constructor ({
@@ -12,8 +20,8 @@ export default class App {
     this.instance = null
     this.root = root
     this.el = el
-    this.router = RouterFactory(routes)
     this.store = StoreFactory(store)
+    this.router = RouterFactory(routes, this.store)
   }
 
   init () {
