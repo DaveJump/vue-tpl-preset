@@ -3,10 +3,13 @@ import RouterFactory from './router'
 import StoreFactory from './store'
 import vant from 'vant'
 import API from 'api'
+import autoRegister from './auto-register'
+
+import 'vant/lib/index.css'
+import 'assets/<%= options["cssPreprocessor"]%>/common.<%= options["cssPreprocessor"] %>'
 
 Vue.use(vant)
-
-import 'assets/<%= options["cssPreprocessor"]%>/common.<%= options["cssPreprocessor"] %>'
+Vue.use(autoRegister)
 
 Vue.prototype.$API = API
 

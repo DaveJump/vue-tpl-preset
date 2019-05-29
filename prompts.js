@@ -5,12 +5,12 @@ module.exports = [
     message: 'Select the css pre-processor for your project',
     choices: [
       {
-        name: 'Less',
-        value: 'less'
-      },
-      {
         name: 'Sass/SCSS',
         value: 'scss'
+      },
+      {
+        name: 'Less',
+        value: 'less'
       }
     ],
     default: 'scss'

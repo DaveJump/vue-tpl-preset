@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import commonModules from './common'
 
-const StoreFactory = store => {
+const StoreFactory = pageModules => {
   Vue.use(Vuex)
   
-  const { state, mutations, actions } = store
-
   return new Vuex.Store({
-    state,
-    mutations,
-    actions
+    modules: {
+      ...commonModules,
+      ...pageModules
+    }
   })
 }
 
