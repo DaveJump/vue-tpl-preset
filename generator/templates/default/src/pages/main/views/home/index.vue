@@ -2,7 +2,9 @@
   <div class="index-home">
     <home-header></home-header>
     <div class="index-home__content">
-      <span style="color: #999;">自定义内容</span>
+      <h3 style="color: #999;">Vue-mobile-app-template</h3>
+      <br>
+      <span>Custom Content</span>
     </div>
   </div>
 </template>

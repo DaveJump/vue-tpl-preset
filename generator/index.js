@@ -7,101 +7,101 @@ module.exports = (api, opts, rootOpts) => {
 
   // Bases
   let bases = {
-    license: "MIT",
+    license: 'MIT',
     author: 'author',
     appConfig: {
-      "name": appName,
-      "title": "App",
-      "description": "A mobile app base on vant",
-      "keywords": "app mobile",
-      "env": "",
-      "publicPath": `/`
+      'name': appName,
+      'title': 'App',
+      'description': 'A mobile app base on vant',
+      'keywords': 'app mobile',
+      'env': '',
+      'publicPath': '/'
     }
   }
 
   // Scripts
   let scripts = {
-    dev: "vue-cli-service serve --copy",
-    build: "vue-cli-service build",
-    lint: "vue-cli-service lint",
-    serve: "vue-cli-service serve"
+    dev: 'vue-cli-service serve --copy',
+    build: 'vue-cli-service build',
+    lint: 'vue-cli-service lint',
+    serve: 'vue-cli-service serve'
   }
 
   // Dependencies
   let dependencies = {
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "vuex-class": "^0.3.1",
-    "vue-meta": "^1.5.8",
-    "vant": "^1.5.2",
-    "lodash": "^4.17.11",
-    "axios": "^0.18.0"
+    'vue': '^2.6.10',
+    'vue-router': '^3.0.1',
+    'vuex': '^3.0.1',
+    'vuex-class': '^0.3.1',
+    'vue-meta': '^1.5.8',
+    'vant': '^1.5.2',
+    'lodash': '^4.17.11',
+    'axios': '^0.18.0'
   }
   let devDependencies = {
-    "babel-plugin-import": "^1.10.0",
-    "vue-template-compiler": "^2.6.10",
-    "eslint-friendly-formatter": "^4.0.1",
-    "terser-webpack-plugin": "^1.2.3"
+    'babel-plugin-import': '^1.10.0',
+    'vue-template-compiler': '^2.6.10',
+    'eslint-friendly-formatter': '^4.0.1',
+    'terser-webpack-plugin': '^1.2.3'
   }
   // # less
   if (opts['cssPreprocessor'] === 'less') {
     Object.assign(devDependencies, {
-      "less": "^3.9.0",
-      "less-loader": "^4.1.0"
+      'less': '^3.9.0',
+      'less-loader': '^4.1.0'
     })
   }
   // # sass
   if (opts['cssPreprocessor'] === 'scss') {
     Object.assign(devDependencies, {
-      "node-sass": "^4.10.0",
-      "sass-loader": "^7.1.0"
+      'node-sass': '^4.10.0',
+      'sass-loader': '^7.1.0'
     })
   }
 
   // Eslint extending and extra plugin config
   let extraConfig = {
     eslintConfig: {
-      "root": true,
-      "env": {
-        "node": true
+      'root': true,
+      'env': {
+        'node': true
       },
       'extends': [
         'plugin:vue/essential',
         '@vue/standard'
       ],
-      "rules": {
-        "vue/no-parsing-error": [
+      'rules': {
+        'vue/no-parsing-error': [
           2,
-          { "x-invalid-end-tag": false }
+          { 'x-invalid-end-tag': false }
         ],
-        "import/no-duplicates": 0
+        'import/no-duplicates': 0
       },
-      "parserOptions": {
-        "parser": 'babel-eslint'
+      'parserOptions': {
+        'parser': 'babel-eslint'
       }
     },
-    "postcss": {
-      "plugins": {
-        "autoprefixer": {}
+    'postcss': {
+      'plugins': {
+        'autoprefixer': {}
       }
     },
-    "browserslist": [
-      "> 1%",
-      "last 2 versions",
-      "not ie <= 8"
+    'browserslist': [
+      '> 1%',
+      'last 2 versions',
+      'not ie <= 8'
     ],
-    "gitHooks": {
-      "pre-commit": "lint-staged"
+    'gitHooks': {
+      'pre-commit': 'lint-staged'
     },
-    "lint-staged": {
-      "*.js": [
-        "vue-cli-service lint",
-        "git add"
+    'lint-staged': {
+      '*.js': [
+        'vue-cli-service lint',
+        'git add'
       ],
-      "*.vue": [
-        "vue-cli-service lint",
-        "git add"
+      '*.vue': [
+        'vue-cli-service lint',
+        'git add'
       ]
     }
   }
@@ -113,7 +113,7 @@ module.exports = (api, opts, rootOpts) => {
     devDependencies,
     ...extraConfig
   })
-  
+
   /**
    * Rendering files
    */
@@ -121,8 +121,8 @@ module.exports = (api, opts, rootOpts) => {
   // Drop vue-cli preset template
   api.render(files => {
     Object.keys(files)
-          .filter(path => path.startsWith('src/') || path.startsWith('public/'))
-          .forEach(path => delete files[path])
+      .filter(path => path.startsWith('src/') || path.startsWith('public/'))
+      .forEach(path => delete files[path])
   })
 
   api.render('./templates/default')

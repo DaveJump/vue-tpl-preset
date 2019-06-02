@@ -4,7 +4,7 @@
     "es6": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": "standard",
   "parserOptions": {
     "sourceType": "module"
   },
@@ -17,10 +17,6 @@
       0,
       "error",
       "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
     ],
     "semi": [
       "error",
