@@ -18,9 +18,9 @@ The template preset base on vue 2.x and vue-cli 3.x
 Use remote repo directly
 
 ```bash
-> vue create --preset direct:https://github.com/DaveJump/vue-tpl-preset.git your-project
+$ vue create --preset direct:https://github.com/DaveJump/vue-tpl-preset.git your-project
 
 // begin your project
-> cd your-project
-> yarn dev
+$ cd your-project
+$ yarn dev
 ```

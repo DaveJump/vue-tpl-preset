@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "eslint",
     "commit": "git add . && git-cz",
-    "release": "standard-version"
+    "release": "bash ./release.sh",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "keywords": [
     "vue-preset",
