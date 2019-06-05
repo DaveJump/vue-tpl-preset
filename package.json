@@ -1,5 +1,5 @@
 {
-  "name": "@djp/vue-tpl-preset",
+  "name": "@davejump66/vue-tpl-preset",
   "version": "1.0.0",
   "description": "A template preset base on vue cli 3",
   "main": "./index.js",
