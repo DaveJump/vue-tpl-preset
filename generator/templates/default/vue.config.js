@@ -1,6 +1,6 @@
 /**
 * created by vue-mobile-preset
-* @author DaveJump <davejump666@yahoo.com>
+* @author DaveJump <davejump16@gmail.com>
 */
 
 const glob = require('glob')
@@ -21,19 +21,19 @@ function getPagesConfig (entry) {
   let pages = {}
   // define entry files like: index.html, main.js, root.vue
   glob.sync(PAGE_PATH + '/*/main.js')
-      .forEach(filePath => {
-        let pageName = path.basename(path.dirname(filePath))
+    .forEach(filePath => {
+      let pageName = path.basename(path.dirname(filePath))
 
-        if (entry && entry !== pageName) return
+      if (entry && entry !== pageName) return
 
-        pages[pageName] = {
-          entry: filePath,
-          filename: `${pageName === 'main' ? '' : pageName + '/'}index.html`,
-          template: './public/index.html',
-          chunks: ['lib', 'vendors', 'manifest', pageName],
-          ...pkg.appConfig
-        }
-      })
+      pages[pageName] = {
+        entry: filePath,
+        filename: `${pageName === 'main' ? '' : pageName + '/'}index.html`,
+        template: './public/index.html',
+        chunks: ['lib', 'vendors', 'manifest', pageName],
+        ...pkg.appConfig
+      }
+    })
   return pages
 }
 
@@ -101,21 +101,21 @@ module.exports = {
   chainWebpack: config => {
     // Alias
     config.resolve
-            .alias
-              .set('vue$', resolve('./node_modules/vue/dist/vue.common.js'))
-              .set('assets', resolve('src/assets'))
-              .set('components', resolve('src/components'))
-              .set('lib', resolve('src/lib'))
-              .set('api', resolve('src/lib/api'))
-              .set('utils', resolve('src/lib/utils'))
-              .set('mixins', resolve('src/mixins'))
+      .alias
+      .set('vue$', resolve('./node_modules/vue/dist/vue.common.js'))
+      .set('assets', resolve('src/assets'))
+      .set('components', resolve('src/components'))
+      .set('lib', resolve('src/lib'))
+      .set('api', resolve('src/lib/api'))
+      .set('utils', resolve('src/lib/utils'))
+      .set('mixins', resolve('src/mixins'))
 
     // Set alias depend on multi-pages
     Object.keys(pages)
-          .forEach(pageName => {
-            config.resolve.alias.set(pageName, resolve(`src/pages/${pageName}`))
-          })
-    
+      .forEach(pageName => {
+        config.resolve.alias.set(pageName, resolve(`src/pages/${pageName}`))
+      })
+
     /* Eslint loader and formatter */
     config.module
       .rule('eslint')
@@ -136,7 +136,7 @@ module.exports = {
   // Import var to global
   css: {
     loaderOptions: {
-      ['<%= options.cssPreprocessor === "scss" ? "sass" : "less"%>']: {
+      '<%= options.cssPreprocessor === "scss" ? "sass" : "less"%>': {
         data: `
           @import "~@/assets/<%= options.cssPreprocessor%>/vars.<%= options.cssPreprocessor%>";
           @import "~@/assets/<%= options.cssPreprocessor%>/mixins.<%= options.cssPreprocessor%>";
@@ -145,5 +145,3 @@ module.exports = {
     }
   }
 }
-
-

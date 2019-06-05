@@ -1,6 +1,6 @@
 {
-  "name": "@davejump66/vue-tpl-preset",
-  "version": "1.0.1",
+  "name": "@djp6/vue-tpl-preset",
+  "version": "1.0.0",
   "description": "A template preset base on vue cli 3",
   "main": "./index.js",
   "repository": {
@@ -21,7 +21,7 @@
     "vue preset",
     "project preset"
   ],
-  "author": "DaveJump <davejump66@gmail.com>",
+  "author": "DaveJump <davejump16@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "assert": "^1.4.1",
