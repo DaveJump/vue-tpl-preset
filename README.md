@@ -6,7 +6,7 @@ The template preset base on vue 2.x and vue-cli 3.x
 
 ## UI-Components
 
-* Mobile template: [Vant](https://youzan.github.io/vant/#/zh-CN/intro)
+* mobile template: [Vant](https://youzan.github.io/vant/#/zh-CN/intro)
 
 ## Core Packages
 
@@ -15,12 +15,19 @@ The template preset base on vue 2.x and vue-cli 3.x
 
 ## Usage
 
-Use remote repo directly
+1. Use remote repo directly
 
 ```bash
-$ vue create --preset direct:https://github.com/DaveJump/vue-tpl-preset.git your-project
+$ vue create --preset direct:https://github.com/DaveJump/vue-tpl-preset.git --clone your-project
 
 // begin your project
 $ cd your-project
 $ yarn dev
+```
+
+2. Install npm package
+
+```bash
+$ npm install -g @djp/vue-tpl-preset
+$ vue-tpl create your-project
 ```

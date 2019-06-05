@@ -1,5 +1,5 @@
 {
-  "name": "@davejump/vue-tpl-preset",
+  "name": "@djp/vue-tpl-preset",
   "version": "1.0.0",
   "description": "A template preset base on vue cli 3",
   "main": "./index.js",
@@ -10,8 +10,11 @@
   "scripts": {
     "lint": "eslint",
     "commit": "git add . && git-cz",
-    "release": "bash ./release.sh",
+    "release": "bash ./bin/release.sh",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "bin": {
+    "vue-tpl": "./bin/gen.js"
   },
   "keywords": [
     "vue-preset",
@@ -22,6 +25,9 @@
   "license": "MIT",
   "dependencies": {
     "assert": "^1.4.1",
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "execa": "^1.0.0",
     "fs-extra": "^7.0.1",
     "globby": "^8.0.1"
   },
