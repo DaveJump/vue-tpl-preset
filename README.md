@@ -28,6 +28,6 @@ $ yarn dev
 2. Install npm package
 
 ```bash
-$ npm install -g @davejump66/vue-tpl-preset
+$ npm install -g @djp6/vue-tpl-preset
 $ vue-tpl create your-project
 ```
