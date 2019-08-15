@@ -24,6 +24,13 @@ Axios.interceptors.request.use(
     //   let token = getCookie(cookieTokenName)
     //   config.headers.Authorization = `Bearer ${token}`
     // }
+
+    // Request cancellation
+    if (typeof config.cancellation === 'function') {
+      config.cancelToken = new axios.CancelToken(function (c) {
+        config.cancellation(c)
+      })
+    }
     return config
   }
 )
