@@ -2,7 +2,7 @@ module.exports = [
   {
     name: 'cssPreprocessor',
     type: 'list',
-    message: 'Select the css pre-processor for your project',
+    message: 'Select the css pre-processor.',
     choices: [
       {
         name: 'Sass/SCSS',
@@ -14,5 +14,11 @@ module.exports = [
       }
     ],
     default: 'scss'
+  },
+  {
+    name: 'PWASupport',
+    type: 'confirm',
+    message: 'PWA Support ?',
+    default: false
   }
 ]
