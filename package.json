@@ -1,6 +1,6 @@
 {
   "name": "@djp6/vue-tpl-preset",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A template preset base on vue cli 3",
   "main": "./index.js",
   "repository": {
