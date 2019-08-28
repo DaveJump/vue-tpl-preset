@@ -25,12 +25,9 @@
   "author": "DaveJump <davejump16@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "assert": "^1.4.1",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
-    "execa": "^1.0.0",
-    "fs-extra": "^7.0.1",
-    "globby": "^8.0.1"
+    "ora": "^3.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",

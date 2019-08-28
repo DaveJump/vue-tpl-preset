@@ -128,4 +128,49 @@ module.exports = (api, opts, rootOpts) => {
   api.render('./templates/default')
   if (opts['cssPreprocessor'] === 'less') api.render('./templates/css-pre-processors/less')
   if (opts['cssPreprocessor'] === 'scss') api.render('./templates/css-pre-processors/scss')
+
+  if (opts['PWASupport']) {
+    // Render pwa imports
+    const injectImport = () => {
+      const imports = `\nimport './registerServiceWorker'`
+      const fs = require('fs')
+      const appPath = api.resolve('src/app.js')
+      let appContent = fs.readFileSync(appPath, { encoding: 'utf-8' })
+      let lines = appContent.split(/\r?\n/g).reverse()
+      // Inject imports
+      let lastImportIndex = lines.findIndex(line => line.match(/^import/))
+      lines[lastImportIndex] += imports
+      // Write back to file
+      appContent = lines.reverse().join('\n')
+      fs.writeFileSync(appPath, appContent, { encoding: 'utf-8' })
+    }
+    const execPluginAdding = () => {
+      return new Promise((resolve, reject) => {
+        const { execSync } = require('child_process')
+        const ora = require('ora')
+        const spinner = ora({
+          text: `Installing PWA plugin...\n`,
+          prefixText: `\n\n`
+        })
+        spinner.start()
+        try {
+          let result = execSync('vue add pwa', { cwd: api.resolve('./'), windowsHide: true })
+          resolve(result)
+        } catch (e) {
+          api.exitLog(`An error occurred during installing PWA plugin !`, 'error')
+          reject(e)
+        } finally {
+          spinner.stop()
+        }
+      })
+    }
+    api.onCreateComplete(() => {
+      execPluginAdding()
+        .then(() => {
+          injectImport()
+          console.log(`🤓  PWA plugin installed.\n`)
+        })
+        .catch(e => {})
+    })
+  }
 }
