@@ -14,5 +14,11 @@ module.exports = [
       }
     ],
     default: 'scss'
+  },
+  {
+    name: 'PWASupport',
+    type: 'confirm',
+    message: 'PWA Support ?',
+    default: false
   }
 ]

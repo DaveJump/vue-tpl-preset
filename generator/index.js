@@ -154,7 +154,7 @@ module.exports = (api, opts, rootOpts) => {
         // })
         // spinner.start()
         try {
-          console.log(`\n\nnstalling PWA plugin...\n`)
+          console.log(`\n\n⚙️  Installing PWA plugin...\n`)
           let result = execSync('vue add pwa', { cwd: api.resolve('./'), windowsHide: true })
           resolve(result)
         } catch (e) {
