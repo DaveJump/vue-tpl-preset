@@ -147,21 +147,23 @@ module.exports = (api, opts, rootOpts) => {
     const execPluginAdding = () => {
       return new Promise((resolve, reject) => {
         const { execSync } = require('child_process')
-        const ora = require('ora')
-        const spinner = ora({
-          text: `Installing PWA plugin...\n`,
-          prefixText: `\n\n`
-        })
-        spinner.start()
+        // const ora = require('ora')
+        // const spinner = ora({
+        //   text: `Installing PWA plugin...\n`,
+        //   prefixText: `\n\n`
+        // })
+        // spinner.start()
         try {
+          console.log(`\n\nnstalling PWA plugin...\n`)
           let result = execSync('vue add pwa', { cwd: api.resolve('./'), windowsHide: true })
           resolve(result)
         } catch (e) {
           api.exitLog(`An error occurred during installing PWA plugin !`, 'error')
           reject(e)
-        } finally {
-          spinner.stop()
         }
+        // finally {
+        //   spinner.stop()
+        // }
       })
     }
     api.onCreateComplete(() => {
