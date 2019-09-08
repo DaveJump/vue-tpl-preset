@@ -54,7 +54,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "!(*vue.config).js": [
       "eslint --fix",
       "git add"
     ]

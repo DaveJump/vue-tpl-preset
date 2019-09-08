@@ -45,12 +45,10 @@ module.exports = {
   // filenameHashing: false,
   productionSourceMap: false,
   lintOnSave: true,
-
   // Multi pages
   pages: {
     ...pages
   },
-
   // Webpack config
   configureWebpack: {
     cache: true,
@@ -96,7 +94,6 @@ module.exports = {
       })
     ]
   },
-
   // ChainWebpack settings
   chainWebpack: config => {
     // Alias
@@ -126,13 +123,11 @@ module.exports = {
         fix: true
       })
   },
-
   // Server of development
   devServer: {
     port: process.env.PORT || 5000
     // proxy: {}
   },
-
   // Import var to global
   css: {
     loaderOptions: {
@@ -144,4 +139,13 @@ module.exports = {
       }
     }
   }
+  <%_ if (options.PWASupport) { _%>
+  ,
+  // PWA config，see detail: https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-plugin-pwa/README.md
+  pwa: {
+    workboxOptions: {
+      skipWaiting: true
+    }
+  },
+  <%_ } _%>
 }
