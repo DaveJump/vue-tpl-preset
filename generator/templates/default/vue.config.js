@@ -41,7 +41,7 @@ const pages = getPagesConfig(VUE_APP_ALLOW_ENTRY)
 
 module.exports = {
   publicPath: isProd ? (process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : pkg.appConfig.publicPath) : '/',
-  assetsDir: 'static',
+  assetsDir: '',
   // filenameHashing: false,
   productionSourceMap: false,
   lintOnSave: true,
